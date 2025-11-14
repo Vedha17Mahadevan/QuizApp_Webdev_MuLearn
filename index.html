@@ -8,10 +8,11 @@
 </head>
 <body>
     <div class="container">
-        <h1>Quiz App</h1>
+        <h1>Quick Quiz</h1>
 
         <div id="quiz-box">
             <h2 id="question">Question text</h2>
+
             <div id="answer-buttons" class="btn-grid"></div>
 
             <button id="next-btn" class="next-btn">Next</button>
@@ -20,9 +21,11 @@
         <div id="result-box" class="hidden">
             <h2>Your Score</h2>
             <p id="score-text"></p>
+
             <h3>Summary</h3>
             <ul id="summary-list"></ul>
-            <button onclick="location.reload()">Restart</button>
+
+            <button class="restart-btn" onclick="location.reload()">Restart</button>
         </div>
     </div>
 
