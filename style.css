@@ -6,60 +6,74 @@
 }
 
 body {
-    background: #f4f6ff;
+    background: linear-gradient(135deg, #eef2ff, #d9e2ff);
     display: flex;
     justify-content: center;
     padding: 40px;
+    min-height: 100vh;
 }
 
 .container {
     background: white;
     width: 450px;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.12);
+    transition: transform 0.2s ease;
+}
+
+.container:hover {
+    transform: translateY(-3px);
 }
 
 h1 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    color: #333;
+    letter-spacing: 0.5px;
 }
 
 .btn-grid {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
 }
 
 button {
-    padding: 12px;
+    padding: 14px;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     font-size: 16px;
     cursor: pointer;
+    transition: background 0.25s ease, transform 0.1s ease;
+}
+
+button:active {
+    transform: scale(0.97);
 }
 
 button:hover {
-    opacity: 0.9;
+    opacity: 0.92;
 }
 
 .answer-btn {
-    background: #e3e7ff;
+    background: #e7eaff;
 }
 
 .correct {
-    background: #a2f3a2 !important;
+    background: #9ff8a4 !important;
 }
 
 .wrong {
-    background: #ffb4b4 !important;
+    background: #ffb5b5 !important;
 }
 
 .next-btn {
     background: #4b61ff;
     color: white;
-    margin-top: 20px;
+    margin-top: 25px;
     display: none;
+    border-radius: 8px;
 }
 
 .hidden {
