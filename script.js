@@ -129,21 +129,29 @@ function showResults() {
     scoreText.innerText = `You scored ${score} out of ${questions.length}`;
 
     summaryList.innerHTML = "";
+
     summaryData.forEach(item => {
-        const card = document.createElement("li");
-        card.classList.add("summary-card");
+        const li = document.createElement("li");
+        li.classList.add("summary-card");
 
-        card.innerHTML = `
-            <div class="summary-left">
-                <strong>${item.question}</strong>
-                <p>Your Answer: ${item.selected}</p>
-            </div>
+        const left = document.createElement("div");
+        left.classList.add("summary-left");
 
-            <div class="summary-status ${item.correct ? "correct" : "wrong"}">
-                ${item.correct ? "✓" : "✗"}
-            </div>
-        `;
+        const q = document.createElement("strong");
+        q.textContent = item.question;     
 
-        summaryList.appendChild(card);
+        const ans = document.createElement("p");
+        ans.textContent = `Your Answer: ${item.selected}`;
+
+        left.appendChild(q);
+        left.appendChild(ans);
+        
+        const status = document.createElement("div");
+        status.classList.add("summary-status", item.correct ? "correct" : "wrong");
+        status.textContent = item.correct ? "✓" : "✗";
+
+        li.appendChild(left);
+        li.appendChild(status);
+        summaryList.appendChild(li);
     });
 }
