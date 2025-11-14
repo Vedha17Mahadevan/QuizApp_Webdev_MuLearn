@@ -9,7 +9,7 @@ const questions = [
         ]
     },
     {
-        question: "Which language runs in the browser?",
+        question: "Which language runs inside the browser?",
         answers: [
             { text: "Python", correct: false },
             { text: "JavaScript", correct: true },
@@ -21,9 +21,27 @@ const questions = [
         question: "What does CSS control?",
         answers: [
             { text: "Structure", correct: false },
-            { text: "Design/Style", correct: true },
+            { text: "Design / Style", correct: true },
             { text: "Database", correct: false },
             { text: "Networking", correct: false }
+        ]
+    },
+    {
+        question: "Which tag is used to link CSS in HTML?",
+        answers: [
+            { text: "<link>", correct: true },
+            { text: "<style>", correct: false },
+            { text: "<script>", correct: false },
+            { text: "<css>", correct: false }
+        ]
+    },
+    {
+        question: "What does DOM stand for?",
+        answers: [
+            { text: "Document Object Model", correct: true },
+            { text: "Data Object Mapping", correct: false },
+            { text: "Digital Organization Model", correct: false },
+            { text: "Document Order Machine", correct: false }
         ]
     }
 ];
@@ -55,7 +73,7 @@ function showQuestion() {
     let currentQuestion = questions[currentQuestionIndex];
     questionElement.innerText = currentQuestion.question;
 
-    currentQuestion.answers.forEach((answer) => {
+    currentQuestion.answers.forEach(answer => {
         const button = document.createElement("button");
         button.innerText = answer.text;
         button.classList.add("answer-btn");
@@ -87,7 +105,7 @@ function selectAnswer(e) {
         correct: isCorrect
     });
 
-    Array.from(answerButtons.children).forEach((btn) => {
+    Array.from(answerButtons.children).forEach(btn => {
         btn.disabled = true;
         if (btn.dataset.correct === "true") btn.classList.add("correct");
     });
@@ -97,7 +115,6 @@ function selectAnswer(e) {
 
 nextButton.addEventListener("click", () => {
     currentQuestionIndex++;
-
     if (currentQuestionIndex < questions.length) {
         showQuestion();
     } else {
@@ -112,11 +129,11 @@ function showResults() {
     scoreText.innerText = `You scored ${score} out of ${questions.length}`;
 
     summaryList.innerHTML = "";
-    summaryData.forEach((item) => {
+    summaryData.forEach(item => {
         const li = document.createElement("li");
         li.innerHTML = `
             <strong>${item.question}</strong><br>
-            Your Answer: ${item.selected} — 
+            Your Answer: ${item.selected} —
             ${item.correct ? "<span style='color:green'>Correct</span>" : "<span style='color:red'>Wrong</span>"}
         `;
         summaryList.appendChild(li);
