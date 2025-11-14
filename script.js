@@ -130,12 +130,20 @@ function showResults() {
 
     summaryList.innerHTML = "";
     summaryData.forEach(item => {
-        const li = document.createElement("li");
-        li.innerHTML = `
-            <strong>${item.question}</strong><br>
-            Your Answer: ${item.selected} —
-            ${item.correct ? "<span style='color:green'>Correct</span>" : "<span style='color:red'>Wrong</span>"}
+        const card = document.createElement("li");
+        card.classList.add("summary-card");
+
+        card.innerHTML = `
+            <div class="summary-left">
+                <strong>${item.question}</strong>
+                <p>Your Answer: ${item.selected}</p>
+            </div>
+
+            <div class="summary-status ${item.correct ? "correct" : "wrong"}">
+                ${item.correct ? "✓" : "✗"}
+            </div>
         `;
-        summaryList.appendChild(li);
+
+        summaryList.appendChild(card);
     });
 }
